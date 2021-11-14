@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>input age</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <div class="range">
+        <div class="sliderValue">
+          <span></span>
+          </div> 
+          <div class="field">
+          <div class="value left">18</div>
+            <input type="range" min="18" max="100" value="18" steps="1">
+          <div class="value right">100</div>
+        </div>
+</div>
+
+<script>
+      const slideValue = document.querySelector("span");
+      const inputSlider = document.querySelector("input");
+      inputSlider.oninput = (()=>{
+        let value = inputSlider.value;
+        slideValue.textContent = value;
+        slideValue.style.left = (value-10) + "%";
+        slideValue.classList.add("show");
+      });
+      inputSlider.onblur = (()=>{
+        slideValue.classList.remove("show");
+      });
+    </script>
+
+  </body>
+</html>
